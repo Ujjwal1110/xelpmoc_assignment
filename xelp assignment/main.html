@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="navbar">
+        <img class="image" src="https://www.xelpmoc.in/images/logo.svg" alt="company logo"/>
+        <div id="icon">
+            <div><a href="index.html">Home</a></div>
+            <div>About</div>
+            <div>Solutions</div>
+            <div>Sectors</div>
+            <div>Products</div>
+            <div>Investor Relations</div>
+            <div>Media</div>
+            <div>Careers</div>
+            <button class="btn"><a href="signup.html">Sign up</a></button>
+        </div>
+    </div>
+
+
+    <div id="mainBox">
+    <div id="inputbox">
+        <input class="input1" type="number" placeholder="Number From"/>
+        <input class="input2" type="number" placeholder="Numbers To"/>
+        <button id="btn">Submit</button>
+    </div>
+    <div id="output">
+        <h1>Fibonacci Series</h1>
+    </div>
+</div>
+</body>
+</html>
+<script>
+   var btn=document.querySelector("#btn");
+   btn.addEventListener("click",subFunc)
+   function subFunc(){
+  var num1=parseInt(document.querySelector(".input1").value);
+   var num2=parseInt(document.querySelector(".input2").value);
+   let n1 = num1, n2 = 1, nextTerm;
+nextTerm = n1 + n2;
+while (nextTerm <= num2) {
+ var result = nextTerm;
+ 
+ 
+    n1 = n2;
+    n2 = nextTerm;
+    nextTerm = n1 + n2;
+
+    let div_1 = document.createElement("div")
+    div_1.setAttribute("id","show")
+    div_1.append(result)
+    output.append(div_1)
+}
+
+}
+
+</script>

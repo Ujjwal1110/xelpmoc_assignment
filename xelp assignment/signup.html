@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css"/>
+    
+</head>
+
+<body>
+    <div id="navbar">
+        <img class="image" src="https://www.xelpmoc.in/images/logo.svg"  alt="company logo"/>
+        <div id="icon">
+            <div><a href="index.html">Home</a></div>
+            <div>About</div>
+            <div>Solutions</div>
+            <div>Sectors</div>
+            <div>Products</div>
+            <div>Investor Relations</div>
+            <div>Media</div>
+            <div>Careers</div>
+            <button class="btn"><a href="signup.html">Sign up</a></button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <form id="form">
+        <h2>Sign Up</h2>
+        <input placeholder="Enter 10-Digit Mobile Number" id="mobile" type="Number"/>
+        <hr style="width:85%">
+        <input placeholder="Enter your password" id="password" type="password" />
+        <hr style="width:85%">
+        <input type="email" id="email" placeholder="Enter your Email" />
+        <hr style="width:85%">
+       <input type="submit" id="Cont" value="Sign Up" />
+       <div><p>Existing User? <a id="anchor"href="signin.html"><span>Log In</span></a> </p></div>
+       
+    </form> 
+
+</body>
+</html>
+
+<script>
+    var userData=JSON.parse(localStorage.getItem("allUsers")) || [];
+    document.querySelector("#form").addEventListener("submit",mobileNumber)
+
+    function mobileNumber(){
+        event.preventDefault()
+        var x=document.querySelector("#mobile").value;
+
+        var y=document.querySelector("#password").value;
+
+        var z=document.querySelector("#email").value;
+        if(!x || !y || !z) {
+            alert("Please enter full details !!")
+            return;
+        }
+        var findUser=userData.find(function(c){
+            return c.mobile==x;
+        }) 
+        if(findUser){
+            alert("User already exists !!");
+            return;
+        }
+        alert("Sign Up Successfull, Log In Now");
+        window.location.href="signin.html";
+        userData.push({x,y,z});
+        // console.log(x,y,z);
+        localStorage.setItem("allUsers", JSON.stringify(userData));
+    }
+</script>
+
